@@ -12,12 +12,14 @@ async function main() {
   
   console.log("...............Creating Test PiggyBank................");
   // Create a sample PiggyBank for testing
-  const testDuration = 60 * 60 * 24 * 30; // 30 days in seconds
-  const testReason = "Emergency Fund";
+  const Duration = 60 * 60 * 24 * 30; // 30 days in seconds
+  const Reason = "Emergency Fund";
   
-  const tx = await factory.createPiggyBank(testDuration, testReason);
+  const tx = await factory.createPiggyBank(Duration, Reason);
   await tx.wait();
   console.log("..................Test PiggyBank created!................");
+  console.log("Reason:",Reason);
+  console.log("Duration:",Duration);
   
   // Get deployed PiggyBank addresses
   const allPiggyBanks = await factory.get();

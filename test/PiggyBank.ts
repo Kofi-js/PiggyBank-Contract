@@ -41,4 +41,21 @@ describe("PiggyBank", function () {
         //   expect(developerAddress).to.equal(developer);
         });
     });    
+
+    describe("Deposits", function () {
+        it("Should deposit successfully", async function () {
+          const { piggy, owner} = await loadFixture(deployPiggyBankFixture);
+          const depositAmount = hre.ethers.parseUnits("1000", 18);
+    
+        //   await tokenContract.mint(depositAmount, anotherUser.address);
+        //   expect(await tokenContract.balanceOf(anotherUser.address)).to.equal(depositAmount);
+    
+        //   await tokenContract.connect(anotherUser).approve(saveErc20.target, depositAmount);
+        //   await saveErc20.connect(anotherUser).deposit(depositAmount);
+    
+        //   expect(await tokenContract.balanceOf(anotherUser.address)).to.equal(0);
+        //   expect(await tokenContract.balanceOf(saveErc20.target)).to.equal(depositAmount);
+        //   expect(await saveErc20.connect(anotherUser).getUserBalance()).to.equal(depositAmount);
+        });
+      });
 })    
