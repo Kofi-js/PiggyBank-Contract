@@ -7,6 +7,8 @@ contract PiggyBankFactory {
 
     address[] public piggyBanks;
 
+    mapping(address => address[]) public userPiggyBanks;
+
 
     // The Owner creating a new PiggyBank for another purpose..
     function createPiggyBank(uint256 duration, string memory reason) external returns (address) {
@@ -17,10 +19,11 @@ contract PiggyBankFactory {
             reason
         );
         piggyBanks.push(address(bank));
+        userPiggyBanks[msg.sender].push(address(bank));
         return address(bank);
     }
 
-    function get() external view returns (address[] memory) {
-        return piggyBanks;
+    function getPiggy() external view returns (address[] memory) {
+        return userPiggyBanks[msg.sender];
     }
 }
